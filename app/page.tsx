@@ -1,101 +1,117 @@
+"use client";
+
+import * as React from "react";
+import { useTheme } from "next-themes";
+
+import { useEffect, useState } from "react";
+
+import Particles from "@/components/ui/particles";
+
 import Image from "next/image";
+import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-card";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { Linkedin, Mail, Github } from "lucide-react";
+
+function ThreeDCardDemo() {
+  return (
+    <CardContainer className="inter-var">
+      <CardBody className="bg-gray-50 relative group/card  dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-auto sm:w-[30rem] h-auto rounded-xl p-10 border scale-75 md:scale-100">
+        <CardItem translateZ="100" className="w-full mt-2">
+          <Image
+            src="https://avatars.githubusercontent.com/u/71187051?v=4"
+            height="1000"
+            width="1000"
+            className="h-full w-full object-cover rounded-xl group-hover/card:shadow-xl"
+            alt="thumbnail"
+          />
+        </CardItem>
+        <CardItem
+          translateZ="75"
+          className="text-xl font-bold text-neutral-600 dark:text-white mt-6"
+        >
+          Tim Hämisch
+        </CardItem>
+        <CardItem
+          as="p"
+          translateZ="50"
+          className="text-neutral-500 text-sm max-w-sm mt-4 dark:text-neutral-300"
+        >
+          CompSci Student // Software Dev // Linux Enthusiast
+        </CardItem>
+        <div className="flex justify-between items-center mt-12">
+          <CardItem
+            translateZ={25}
+            className="px-4 py-2 rounded-xl text-xs font-normal dark:text-white"
+          >
+            <Button asChild>
+              <Link
+                href="https://www.linkedin.com/in/tim-h%C3%A4misch-839247334"
+                target="_blank"
+              >
+                <Linkedin />
+                LinkedIn
+              </Link>
+            </Button>
+          </CardItem>
+          <CardItem
+            translateZ={25}
+            className="px-4 py-2 rounded-xl text-xs font-normal dark:text-white"
+          >
+            <Button asChild>
+              <Link href="mailto:tim@thaemisch.net" target="_blank">
+                <Mail />
+                Email
+              </Link>
+            </Button>
+          </CardItem>
+          <CardItem
+            translateZ={25}
+            className="px-4 py-2 rounded-xl text-xs font-normal dark:text-white"
+          >
+            <Button asChild>
+              <Link
+                href="https://github.com/thaemisch/website-v4"
+                target="_blank"
+              >
+                <Github />
+                GitHub
+              </Link>
+            </Button>
+          </CardItem>
+        </div>
+      </CardBody>
+    </CardContainer>
+  );
+}
+
+function ParticlesBg() {
+  const { theme } = useTheme();
+  const [color, setColor] = useState("#ffffff");
+
+  useEffect(() => {
+    setColor(theme === "light" ? "#000000" : "#ffffff");
+  }, [theme]);
+
+  return (
+    <div className="relative flex h-full w-full flex-col items-center justify-center overflow-hidden rounded-lg bg-background md:shadow-xl">
+      <span className="pointer-events-none whitespace-pre-wrap bg-gradient-to-b from-black to-gray-300/80 bg-clip-text text-center text-8xl font-semibold leading-none text-transparent dark:from-white dark:to-slate-900/10"></span>
+      <ThreeDCardDemo />
+      <Particles
+        className="absolute inset-0"
+        quantity={200}
+        ease={20}
+        color={color}
+        refresh
+      />
+    </div>
+  );
+}
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+    <div className="h-full">
+      <ParticlesBg />
     </div>
   );
 }
