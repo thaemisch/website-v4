@@ -6,6 +6,7 @@ import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-card";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Linkedin, Mail, Github } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
 
 function ThreeDCardDemo() {
   return (
@@ -27,16 +28,18 @@ function ThreeDCardDemo() {
           Tim Hämisch
         </CardItem>
         <CardItem
-          as="p"
+          as="div"
           translateZ="50"
-          className="text-neutral-500 text-sm max-w-sm mt-4 dark:text-neutral-300"
+          className="mt-4 w-full flex flex-row justify-between"
         >
-          CompSci Student // Software Dev // Linux Enthusiast
+          <Badge variant="outline">CompSci Student</Badge>
+          <Badge variant="outline">Software Developer</Badge>
+          <Badge variant="outline">Linux Enthusiast</Badge>
         </CardItem>
-        <div className="flex justify-between items-center mt-12 mb-2">
+        <div className=" w-full flex justify-between items-center mt-8 mb-2">
           <CardItem
             translateZ={25}
-            className="px-4 py-2 rounded-xl text-xs font-normal dark:text-white"
+            className="py-2 rounded-xl text-xs font-normal dark:text-white"
           >
             <Button asChild>
               <Link
@@ -50,7 +53,7 @@ function ThreeDCardDemo() {
           </CardItem>
           <CardItem
             translateZ={25}
-            className="px-4 py-2 rounded-xl text-xs font-normal dark:text-white"
+            className="py-2 rounded-xl text-xs font-normal dark:text-white"
           >
             <Button asChild>
               <Link href="mailto:tim@thaemisch.net" target="_blank">
@@ -61,7 +64,7 @@ function ThreeDCardDemo() {
           </CardItem>
           <CardItem
             translateZ={25}
-            className="px-4 py-2 rounded-xl text-xs font-normal dark:text-white"
+            className="py-2 rounded-xl text-xs font-normal dark:text-white"
           >
             <Button asChild>
               <Link
