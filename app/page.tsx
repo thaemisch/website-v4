@@ -67,10 +67,7 @@ function ThreeDCardDemo() {
             className="py-2 rounded-xl text-xs font-normal dark:text-white"
           >
             <Button asChild>
-              <Link
-                href="https://github.com/thaemisch/website-v4"
-                target="_blank"
-              >
+              <Link href="https://github.com/thaemisch" target="_blank">
                 <Github />
                 GitHub
               </Link>

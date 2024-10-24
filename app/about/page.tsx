@@ -33,7 +33,7 @@ function LinkPreviewAbout() {
         </LinkPreview>{" "}
         with source code available on{" "}
         <LinkPreview
-          url="https://github.com/thaemisch/website-v4"
+          url="https://github.com/thaemisch/web"
           className="font-bold"
         >
           GitHub.

@@ -4,7 +4,7 @@
       "index": "this-one",
       "title": "This one",
       "description": "Serves as a portfolio of yours truly.",
-      "repolink": "https://github.com/thaemisch/website-v4",
+      "repolink": "https://github.com/thaemisch/web",
       "stackPrimary": ["React", "Next.js"],
       "stackSecondary": [
         "TailwindCSS",
