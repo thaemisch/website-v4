@@ -28,10 +28,7 @@ function LinkPreviewAbout() {
       </p>
       <p className="text-neutral-500 dark:text-neutral-400 text-xl md:text-3xl max-w-3xl mx-auto mb-10">
         Built by{" "}
-        <LinkPreview
-          url="https://www.github.com/thaemisch/"
-          className="font-bold"
-        >
+        <LinkPreview url="https://github.com/thaemisch/" className="font-bold">
           thaemisch
         </LinkPreview>{" "}
         with source code available on{" "}
