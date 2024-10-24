@@ -23,14 +23,14 @@ function ThreeDCardDemo() {
         </CardItem>
         <CardItem
           translateZ="75"
-          className="text-xl font-bold text-neutral-600 dark:text-white mt-6"
+          className="text-xl font-bold text-neutral-600 dark:text-white mt-6 select-none"
         >
           Tim Hämisch
         </CardItem>
         <CardItem
           as="div"
           translateZ="50"
-          className="mt-4 w-full flex flex-row justify-between"
+          className="mt-4 w-full flex flex-row justify-between select-none"
         >
           <Badge variant="outline">CompSci Student</Badge>
           <Badge variant="outline">Software Developer</Badge>
