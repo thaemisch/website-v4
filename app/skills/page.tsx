@@ -1,6 +1,6 @@
 "use client";
 
-export default function Projects() {
+export default function Skills() {
   return (
     <div className="w-full h-full">
       <div className="w-full bg-white dark:bg-neutral-950 md:px-10">

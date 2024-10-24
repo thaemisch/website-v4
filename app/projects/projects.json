@@ -1,0 +1,143 @@
+{
+  "websites": [
+    {
+      "index": "this-one",
+      "title": "This one",
+      "description": "Serves as a portfolio of yours truly.",
+      "repolink": "https://github.com/thaemisch/website-v4",
+      "stackPrimary": ["React", "Next.js"],
+      "stackSecondary": [
+        "TailwindCSS",
+        "shadcn/ui",
+        "Aceternity UI",
+        "Magic UI"
+      ],
+      "infolink": "/projects/websites/this-one",
+      "deploymentlink": "https://thaemisch.net",
+      "advanced": {
+        "description": "This website is a portfolio of mine, showcasing my projects and skills. It is built with React and Next.js and uses TailwindCSS for styling. The website is fully responsive and has a dark mode. The UI is built with shadcn/ui, Aceternity UI and Magic UI. The source code is available on GitHub.",
+        "contributors": [
+          {
+            "github": "thaemisch"
+          }
+        ]
+      }
+    },
+    {
+      "index": "guess-the-song",
+      "title": "Guess The Song",
+      "description": "A multiplayer browser game where players take turns in picking songs which the other players have to guess.",
+      "repolink": "https://github.com/Guess-The-Song",
+      "stackPrimary": ["Vue", "Nuxt"],
+      "stackSecondary": ["TailwindCSS", "Nuxt UI"],
+      "infolink": "/projects/websites/guess-the-song",
+      "deploymentlink": "https://gts.thaemisch.com",
+      "advanced": {
+        "description": "Embark on a musical journey with our song-identification challenge. In each round, the active player chooses a song from Spotify, while other participants strive to identify both the song and its artists.The game offers a varied selection of tracks, testing participants music knowledge and recognition skills. Engage in this competitive yet straightforward experience, where accuracy and speed determine success. Step into the world of musical deduction and see if you have what it takes to triumph in this intriguing game of knowledge.",
+        "contributors": [
+          {
+            "github": "thaemisch",
+            "role": "Frontend"
+          },
+          {
+            "github": "ob-julian",
+            "role": "Backend"
+          }
+        ],
+        "note": "This project is stil a work in progress. You will not be able to sign in, since the Spotify Aplication is not public yet."
+      }
+    },
+    {
+      "index": "lpg-calc",
+      "title": "LPG Calc",
+      "description": "A simple calculator to evaluate and compare the cost of driving with LPG vs gasoline.",
+      "repolink": "https://github.com/thaemisch/lpg-calc",
+      "stackPrimary": ["Vue", "Nuxt"],
+      "stackSecondary": ["TailwindCSS", "Nuxt UI"],
+      "infolink": "/projects/websites/lpg-calc",
+      "deploymentlink": "https://lpg.thaemisch.com",
+      "advanced": {
+        "description": "I drive a car that runs on both gasoline and LPG. Due to fluctuating prices, I created this calculator to compare the cost of driving with LPG vs gasoline. The calculator takes into account the price of the fuel, the consumption of the car and the efficiency of the fuel. The result is a simple comparison of the cost per 100 km. It also offers approximate yearly savings.",
+        "contributors": [
+          {
+            "github": "thaemisch"
+          }
+        ]
+      }
+    }
+  ],
+  "misc": [
+    {
+      "index": "wordcloud-commitmsgs",
+      "title": "Wordcloud Commitmessages",
+      "description": "A GitHub Action workflow that generates a wordcloud from the commit messages of a repository.",
+      "repolink": "https://github.com/thaemisch/wordcloud-commitmsgs",
+      "stackPrimary": ["Python"],
+      "stackSecondary": ["GitHub Actions"],
+      "infolink": "/projects/misc/wordcloud-commitmsgs",
+      "advanced": {
+        "description": "This project is a GitHub Action workflow that generates a wordcloud from the commit messages of a repository. The wordcloud is generated with the Python library wordcloud. The workflow is triggered on push and generates a wordcloud.png file.",
+        "contributors": [
+          {
+            "github": "thaemisch",
+            "role": "GH Action Workflow & Refinement"
+          },
+          {
+            "github": "ob-julian",
+            "role": "Initial Python Script"
+          }
+        ],
+        "note": "In the beginning when there are few commits, the wordcloud will be very small and not very interesting. The more commits you have, the more interesting the wordcloud will be.",
+        "usage": "Just import the workflow (download below) and it will automatically download the required Python script and clean up after itself, leaving only the wordcloud.png and a Readme file to display the image in the wordcloud/ directory.",
+        "links": [
+          {
+            "name": "Download Workflow",
+            "link": "https://github.com/thaemisch/wordcloud-commitmsgs/releases/download/v1.0.0/generate_wordcloud.yml"
+          }
+        ]
+      }
+    },
+    {
+      "index": "autohotkey",
+      "title": "AutoHotKey",
+      "description": "A collection of my most useful AutoHotKey scripts which i use for various purposes.",
+      "repolink": "https://github.com/thaemisch/autohotkey",
+      "stackPrimary": ["AHK"],
+      "stackSecondary": [],
+      "infolink": "/projects/misc/autohotkey",
+      "advanced": {
+        "description": "AutoHotKey is a powerful and easy-to-learn scripting language for Windows. It allows you to automate almost anything by sending keystrokes and mouse clicks. This repository contains a collection of my most useful scripts which I use for various purposes.",
+        "contributors": [
+          {
+            "github": "thaemisch"
+          }
+        ],
+        "note": "To see which script does what, check the Readme file in the repository."
+      }
+    },
+    {
+      "index": "nvidia-broadcast-fix",
+      "title": "Nvidia Broadcast Fix",
+      "description": "A PowerShell script that fixes issues when using Nvidia Broadcast with Bluetooth devices.",
+      "repolink": "https://github.com/thaemisch/BluetoothBroadcastFix",
+      "stackPrimary": ["PowerShell"],
+      "stackSecondary": ["CMD"],
+      "infolink": "/projects/misc/nvidia-broadcast-fix",
+      "advanced": {
+        "description": " When using Bluetooth Audio devices and having Nvidia Broadcast in auto start, Broadcast starts before your Bluetooth connection is established. This means, you have to manually switch the audio device within Broadcast, and then switch back to the original device. Every. Time.  The script runs in the background, periodically checking if the specified device is connected. Once it is detected, it restarts Broadcast. ",
+        "contributors": [
+          {
+            "github": "thaemisch"
+          }
+        ],
+        "usage": "Set the device ID (on line 1 of bluetooth-broadcast.ps1)",
+        "links": [
+          {
+            "name": "Find Device ID",
+            "link": "https://github.com/thaemisch/BluetoothBroadcastFix/tree/main/getdeviceid"
+          }
+        ]
+      }
+    }
+  ]
+}

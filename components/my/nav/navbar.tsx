@@ -1,11 +1,11 @@
 import Link from "next/link";
+import { FaGithub } from "react-icons/fa";
 
 import { MainNav } from "@/components/my/nav/main-nav";
 import { MobileNav } from "@/components/my/nav/mobile-nav";
 import { ModeToggle } from "@/components/my/nav/mode-toggle";
 import { Button } from "@/components/ui/button";
 
-import { FaGithub } from "react-icons/fa";
 
 export function Navbar() {
   return (
