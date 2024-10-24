@@ -28,7 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased bg-background w-screen h-screen overflow-x-hidden`}
+        className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased bg-background w-screen h-screen overflow-x-hidden flex flex-col items-center`}
       >
         <ThemeProvider
           attribute="class"
@@ -37,7 +37,9 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Navbar />
-          <div className="h-[calc(100%-theme(space.20))]">{children}</div>
+          <div className="h-[calc(100%-theme(space.20))] container mx-4 flex flex-row justify-evenly max-w-screen-2xl items-center">
+            {children}
+          </div>
         </ThemeProvider>
       </body>
     </html>

@@ -25,8 +25,8 @@ function ExperienceTimeline() {
         <div>
           <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-8">
             While in school, I joined the System Administration Club, a group of
-            students led by only one teacher. Installing, configuring
-            and maintaining almost 200 Linux Desktop PC&apos;s along with all
+            students led by only one teacher. Installing, configuring and
+            maintaining almost 200 Linux Desktop PC&apos;s along with all
             required Networking from Ubiquiti Gear to custom firewalls were part
             of our weekly tasks.
           </p>
@@ -53,7 +53,7 @@ function ExperienceTimeline() {
 
 export default function Experience() {
   return (
-    <div className="h-full">
+    <div className="h-full w-full">
       <ExperienceTimeline />
     </div>
   );

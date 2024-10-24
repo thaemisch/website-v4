@@ -1,12 +1,6 @@
 "use client";
 
 import * as React from "react";
-import { useTheme } from "next-themes";
-
-import { useEffect, useState } from "react";
-
-import Particles from "@/components/ui/particles";
-
 import Image from "next/image";
 import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-card";
 import Link from "next/link";
@@ -39,7 +33,7 @@ function ThreeDCardDemo() {
         >
           CompSci Student // Software Dev // Linux Enthusiast
         </CardItem>
-        <div className="flex justify-between items-center mt-12">
+        <div className="flex justify-between items-center mt-12 mb-2">
           <CardItem
             translateZ={25}
             className="px-4 py-2 rounded-xl text-xs font-normal dark:text-white"
@@ -85,33 +79,22 @@ function ThreeDCardDemo() {
   );
 }
 
-function ParticlesBg() {
-  const { theme } = useTheme();
-  const [color, setColor] = useState("#ffffff");
-
-  useEffect(() => {
-    setColor(theme === "light" ? "#000000" : "#ffffff");
-  }, [theme]);
-
+function DotBackgroundDemo() {
   return (
-    <div className="relative flex h-full w-full flex-col items-center justify-center overflow-hidden rounded-lg bg-background md:shadow-xl">
-      <span className="pointer-events-none whitespace-pre-wrap bg-gradient-to-b from-black to-gray-300/80 bg-clip-text text-center text-8xl font-semibold leading-none text-transparent dark:from-white dark:to-slate-900/10"></span>
-      <ThreeDCardDemo />
-      <Particles
-        className="absolute inset-0"
-        quantity={200}
-        ease={20}
-        color={color}
-        refresh
-      />
+    <div className="h-full w-full bg-background dark:bg-dot-white/[0.2] bg-dot-black/[0.2] relative flex items-center justify-center">
+      {/* Radial gradient for the container to give a faded look */}
+      <div className="absolute pointer-events-none inset-0 flex items-center justify-center bg-background [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
+      <div className="relative z-20 bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-neutral-500 py-8">
+        <ThreeDCardDemo />
+      </div>
     </div>
   );
 }
 
 export default function Home() {
   return (
-    <div className="h-full">
-      <ParticlesBg />
+    <div className="h-full w-full">
+      <DotBackgroundDemo />
     </div>
   );
 }
