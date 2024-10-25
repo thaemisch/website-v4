@@ -17,7 +17,7 @@ export function MainNav() {
         />
         <span className="hidden font-bold lg:inline-block">thaemisch</span>
       </Link>
-      <nav className="flex items-center gap-4 text-sm lg:gap-6">
+      <nav className="flex items-center gap-4 font-medium text-sm lg:gap-6">
         <Link
           href="/projects"
           className={cn(
