@@ -14,7 +14,11 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 
-export default function Project({ params }) {
+interface Params {
+  slug: string[];
+}
+
+export default function Project({ params }: { params: Params }) {
   const project = projects.misc.findIndex(
     (project) => project.index === params.slug[0]
   );
@@ -78,7 +82,7 @@ export default function Project({ params }) {
                     <Button variant="ghost">
                       <FaGithub />
                       {contributor.github + " "}
-                      {contributor.role && (
+                      {"role" in contributor && (
                         <Badge variant="outline" className="select-none">
                           {contributor.role}
                         </Badge>
