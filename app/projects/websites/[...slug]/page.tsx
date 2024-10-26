@@ -24,12 +24,9 @@ interface Params {
 }
 
 export default function Project({ params }: { params: Params }) {
-  const project = projects.websites.findIndex(
-    (project) => project.index === params.slug[0]
-  );
-  if (project === -1) {
-    return <div>Not found</div>;
-  }
+  React.useEffect(() => {
+    init();
+  }, []);
 
   const databaseWebsites = process.env.NEXT_PUBLIC_AW_DATABASE_ID_WEBSITES!;
   const collectionWebsites = process.env.NEXT_PUBLIC_AW_COLLECTION_ID_WEBSITES!;
@@ -37,25 +34,23 @@ export default function Project({ params }: { params: Params }) {
   const [item, setItem] = React.useState<any>(null);
   const [contributors, setContributors] = React.useState<any>(null);
 
-  React.useEffect(() => {
-    init();
-  }, []);
-
   const init = async () => {
     const response = await databases.listDocuments(databaseWebsites, collectionWebsites);
     const foundItem = response.documents.find((doc) => doc.index === params.slug[0]);
     setItem(foundItem);
-    try {
-      const contributorsX = foundItem.advancedContributors.map(item => {
-        const parsedItem = JSON.parse(item.replace(/'/g, '"'));
-        return {
-          github: parsedItem.github,
-          role: parsedItem.role
-        };
-      });
-      setContributors(contributorsX);
-    } catch (e) {
-      console.error("Failed to parse contributors JSON:", e);
+    if (foundItem) {
+      try {
+        const contributorsX = foundItem.advancedContributors.map((item: string) => {
+          const parsedItem = JSON.parse(item.replace(/'/g, '"'));
+          return {
+            github: parsedItem.github,
+            role: parsedItem.role
+          };
+        });
+        setContributors(contributorsX);
+      } catch (e) {
+        console.error("Failed to parse contributors JSON:", e);
+      }
     }
   };
 
