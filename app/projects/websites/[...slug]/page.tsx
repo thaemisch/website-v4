@@ -1,3 +1,7 @@
+"use client";
+
+import { databases } from "@/lib/appwrite/config";
+
 import Link from "next/link";
 import projects from "../../projects.json";
 import { Button } from "@/components/ui/button";
@@ -13,6 +17,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import React from "react";
 
 interface Params {
   slug: string[];
@@ -25,17 +30,48 @@ export default function Project({ params }: { params: Params }) {
   if (project === -1) {
     return <div>Not found</div>;
   }
-  const item = projects.websites[project];
+
+  const databaseWebsites = process.env.NEXT_PUBLIC_AW_DATABASE_ID_WEBSITES!;
+  const collectionWebsites = process.env.NEXT_PUBLIC_AW_COLLECTION_ID_WEBSITES!;
+
+  const [item, setItem] = React.useState<any>(null);
+  const [contributors, setContributors] = React.useState<any>(null);
+
+  React.useEffect(() => {
+    init();
+  }, []);
+
+  const init = async () => {
+    const response = await databases.listDocuments(databaseWebsites, collectionWebsites);
+    const foundItem = response.documents.find((doc) => doc.index === params.slug[0]);
+    setItem(foundItem);
+    try {
+      const contributorsX = foundItem.advancedContributors.map(item => {
+        const parsedItem = JSON.parse(item.replace(/'/g, '"'));
+        return {
+          github: parsedItem.github,
+          role: parsedItem.role
+        };
+      });
+      setContributors(contributorsX);
+    } catch (e) {
+      console.error("Failed to parse contributors JSON:", e);
+    }
+  };
+
+  if (!item) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <div className="w-full h-full">
-      <div className="w-full bg-white dark:bg-neutral-950 md:px-10">
+      <div className="w-full bg-background md:px-10">
         <div className="w-full mx-auto py-20 px-4 md:px-8 lg:px-10 min-h-96">
           <h2 className="text-lg md:text-4xl mb-4 text-black dark:text-white max-w-4xl flex flex-row items-center align-middle gap-1">
             {item.title}
             <Link
               className="align-middle"
-              href={item.repolink}
+              href={item.repoLink}
               target="_blank"
               rel="noreferrer"
             >
@@ -43,10 +79,10 @@ export default function Project({ params }: { params: Params }) {
                 <FaGithub />
               </Button>
             </Link>
-            {item.deploymentlink && (
+            {item.deploymentLink && (
               <Link
                 className="align-middle"
-                href={item.deploymentlink}
+                href={item.deploymentLink}
                 target="_blank"
                 rel="noreferrer"
               >
@@ -61,10 +97,10 @@ export default function Project({ params }: { params: Params }) {
           </p>
           <ScrollArea className="w-full whitespace-nowrap rounded-md">
             <div className="flex w-max space-x-4 py-6 select-none">
-              {item.stackPrimary.map((stackP, index) => (
+              {item.stackPrimary.map((stackP: string, index: string) => (
                 <Badge key={index}>{stackP}</Badge>
               ))}
-              {item.stackSecondary.map((stackS, index) => (
+              {item.stackSecondary.map((stackS: string, index: string) => (
                 <Badge variant="secondary" key={index}>
                   {stackS}
                 </Badge>
@@ -75,7 +111,7 @@ export default function Project({ params }: { params: Params }) {
         </div>
         <div className="w-full flex flex-col xl:flex-row md:px-10 gap-10">
           <div className="w-full flex flex-col gap-10">
-            {item.advanced?.description}
+            {item.advancedDescription}
           </div>
           <div className="w-full flex flex-col gap-10">
             <Card className="w-full">
@@ -83,7 +119,7 @@ export default function Project({ params }: { params: Params }) {
                 <CardTitle>Contributors</CardTitle>
               </CardHeader>
               <CardContent className="flex flex-col">
-                {item.advanced?.contributors.map((contributor, index) => (
+                {contributors.map((contributor: { github: string; role?: string }, index: any) => (
                   <Link
                     key={index}
                     className="align-middle"
@@ -94,7 +130,7 @@ export default function Project({ params }: { params: Params }) {
                     <Button variant="ghost">
                       <FaGithub />
                       {contributor.github + " "}
-                      {"role" in contributor && (
+                      {contributor.role && (
                         <Badge variant="outline" className="select-none">
                           {contributor.role}
                         </Badge>
@@ -104,13 +140,13 @@ export default function Project({ params }: { params: Params }) {
                 ))}
               </CardContent>
             </Card>
-            {item.advanced?.note && (
+            {item.advancedNote && (
               <Card className="w-full">
                 <CardHeader>
                   <CardTitle>Note</CardTitle>
                 </CardHeader>
                 <CardContent className="flex flex-col">
-                  {item.advanced?.note}
+                  {item.advancedNote}
                 </CardContent>
               </Card>
             )}

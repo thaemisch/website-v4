@@ -1,5 +1,7 @@
 "use client";
 
+import { databases } from "@/lib/appwrite/config";
+
 import projects from "./projects.json";
 
 import * as React from "react";
@@ -7,7 +9,6 @@ import * as React from "react";
 import Link from "next/link";
 import { FaGithub } from "react-icons/fa";
 import { ArrowRight } from "lucide-react";
-
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -17,7 +18,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-
 import {
   Carousel,
   CarouselContent,
@@ -25,16 +25,28 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { Separator } from "@/components/ui/separator";
 import { Badge } from "@/components/ui/badge";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 
 function CarouselWebsites() {
-  const data = projects.websites;
+  const databaseWebsites = process.env.NEXT_PUBLIC_AW_DATABASE_ID_WEBSITES!;
+  const collectionWebsites = process.env.NEXT_PUBLIC_AW_COLLECTION_ID_WEBSITES!;
+
+  const [data, setData] = React.useState<{ documents: any[] }>({ documents: [] });
+
+  React.useEffect(() => {
+    init();
+  }, []);
+
+  const init = async () => {
+    const response = await databases.listDocuments(databaseWebsites, collectionWebsites);
+    setData(response);
+  };
+
   return (
     <Carousel className="w-full">
       <CarouselContent className="-ml-1 w-full">
-        {data.map((item, index) => (
+        {data.documents.map((item, index) => (
           <CarouselItem key={index} className="pl-1 xl:basis-1/2 2xl:basis-1/3">
             <div className="p-1 h-full flex">
               <Card className="flex flex-col flex-grow">
@@ -46,7 +58,7 @@ function CarouselWebsites() {
                         {item.description}
                       </CardDescription>
                     </div>
-                    <Link href={item.repolink} target="_blank" rel="noreferrer">
+                    <Link href={item.repoLink} target="_blank" rel="noreferrer">
                       <Button variant="ghost" className="h-10 w-10 px-0">
                         <FaGithub />
                         <span className="sr-only">GitHub</span>
@@ -58,10 +70,10 @@ function CarouselWebsites() {
                   <div className="gap-2 w-full">
                     <ScrollArea className="w-96 whitespace-nowrap rounded-md">
                       <div className="flex w-max space-x-4 py-6 px-2 select-none">
-                        {item.stackPrimary.map((stackP, index) => (
+                        {item.stackPrimary.map((stackP: string, index: string) => (
                           <Badge key={index}>{stackP}</Badge>
                         ))}
-                        {item.stackSecondary.map((stackS, index) => (
+                        {item.stackSecondary.map((stackS: string, index: string) => (
                           <Badge variant="secondary" key={index}>
                             {stackS}
                           </Badge>
@@ -73,22 +85,20 @@ function CarouselWebsites() {
                 </CardContent>
                 <CardFooter>
                   <div className="w-full flex flex-row items-center justify-between">
-                    {item.infolink && (
-                      <Button variant="ghost" asChild>
-                        <Link
-                          href={item.infolink}
-                          target="_blank"
-                          rel="noreferrer"
-                        >
-                          More
-                          <ArrowRight />
-                        </Link>
-                      </Button>
-                    )}
-                    {item.deploymentlink && (
+                    <Button variant="ghost" asChild>
+                      <Link
+                        href={"/projects/websites/" + item.index}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        More
+                        <ArrowRight />
+                      </Link>
+                    </Button>
+                    {item.deploymentLink && (
                       <Button asChild>
                         <Link
-                          href={item.deploymentlink}
+                          href={item.deploymentLink}
                           target="_blank"
                           rel="noreferrer"
                         >
@@ -107,7 +117,7 @@ function CarouselWebsites() {
       <CarouselPrevious className="relative -bottom-10 left-6 scale-150" />
       <CarouselNext className="relative -bottom-10 left-12 scale-150" />
     </Carousel>
-  );
+  )
 }
 
 function CardWebistes() {
