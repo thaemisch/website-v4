@@ -79,7 +79,7 @@ function ThreeDCardDemo() {
   );
 }
 
-function DotBackgroundDemo() {
+function DotBackground() {
   return (
     <div className="h-full w-full bg-background dark:bg-dot-white/[0.2] bg-dot-black/[0.2] relative flex items-center justify-center">
       {/* Radial gradient for the container to give a faded look */}
@@ -94,7 +94,7 @@ function DotBackgroundDemo() {
 export default function Home() {
   return (
     <div className="h-full w-full">
-      <DotBackgroundDemo />
+      <DotBackground />
     </div>
   );
 }
