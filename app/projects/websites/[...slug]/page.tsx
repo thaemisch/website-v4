@@ -17,6 +17,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import LoadingSlug from "../../loadingSlug";
 import React from "react";
 
 interface Params {
@@ -55,7 +56,7 @@ export default function Project({ params }: { params: Params }) {
   };
 
   if (!item) {
-    return <div>Loading...</div>;
+    return <LoadingSlug />;
   }
 
   return (
