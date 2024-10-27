@@ -8,7 +8,7 @@ import * as React from "react";
 
 import Link from "next/link";
 import { FaGithub } from "react-icons/fa";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -39,8 +39,13 @@ function CarouselWebsites() {
   }, []);
 
   const init = async () => {
-    const response = await databases.listDocuments(databaseWebsites, collectionWebsites);
-    setData(response);
+    if (sessionStorage.getItem("dataProjectsWebsites")) {
+      setData(JSON.parse(sessionStorage.getItem("dataProjectsWebsites")!));
+    } else {
+      const response = await databases.listDocuments(databaseWebsites, collectionWebsites);
+      setData(response);
+      sessionStorage.setItem("dataProjectsWebsites", JSON.stringify(response));
+    }
   };
 
   return (
@@ -88,8 +93,6 @@ function CarouselWebsites() {
                     <Button variant="ghost" asChild>
                       <Link
                         href={"/projects/websites/" + item.index}
-                        target="_blank"
-                        rel="noreferrer"
                       >
                         More
                         <ArrowRight />
@@ -103,7 +106,7 @@ function CarouselWebsites() {
                           rel="noreferrer"
                         >
                           Visit
-                          <ArrowRight />
+                          <ExternalLink />
                         </Link>
                       </Button>
                     )}

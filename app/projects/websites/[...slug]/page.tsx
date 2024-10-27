@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import { FaGithub } from "react-icons/fa";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { Badge } from "@/components/ui/badge";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ExternalLink } from "lucide-react";
 import {
   Card,
   CardContent,
@@ -36,21 +36,43 @@ export default function Project({ params }: { params: Params }) {
   const [contributors, setContributors] = React.useState<any>(null);
 
   const init = async () => {
-    const response = await databases.listDocuments(databaseWebsites, collectionWebsites);
-    const foundItem = response.documents.find((doc) => doc.index === params.slug[0]);
-    setItem(foundItem);
-    if (foundItem) {
-      try {
-        const contributorsX = foundItem.advancedContributors.map((item: string) => {
-          const parsedItem = JSON.parse(item.replace(/'/g, '"'));
-          return {
-            github: parsedItem.github,
-            role: parsedItem.role
-          };
-        });
-        setContributors(contributorsX);
-      } catch (e) {
-        console.error("Failed to parse contributors JSON:", e);
+    if (sessionStorage.getItem("dataProjectsWebsites")) {
+      JSON.parse(sessionStorage.getItem("dataProjectsWebsites")!);
+      const response = JSON.parse(sessionStorage.getItem("dataProjectsWebsites")!);
+      const foundItem = response.documents.find((doc: any) => doc.index === params.slug[0]);
+      setItem(foundItem);
+      if (foundItem) {
+        try {
+          const contributorsX = foundItem.advancedContributors.map((item: string) => {
+            const parsedItem = JSON.parse(item.replace(/'/g, '"'));
+            return {
+              github: parsedItem.github,
+              role: parsedItem.role
+            };
+          });
+          setContributors(contributorsX);
+        } catch (e) {
+          console.error("Failed to parse contributors JSON:", e);
+        }
+      }
+    } else {
+      const response = await databases.listDocuments(databaseWebsites, collectionWebsites);
+      sessionStorage.setItem("dataProjectsWebsites", JSON.stringify(response));
+      const foundItem = response.documents.find((doc: any) => doc.index === params.slug[0]);
+      setItem(foundItem);
+      if (foundItem) {
+        try {
+          const contributorsX = foundItem.advancedContributors.map((item: string) => {
+            const parsedItem = JSON.parse(item.replace(/'/g, '"'));
+            return {
+              github: parsedItem.github,
+              role: parsedItem.role
+            };
+          });
+          setContributors(contributorsX);
+        } catch (e) {
+          console.error("Failed to parse contributors JSON:", e);
+        }
       }
     }
   };
@@ -83,7 +105,7 @@ export default function Project({ params }: { params: Params }) {
                 rel="noreferrer"
               >
                 <Button>
-                  <ArrowRight />
+                  <ExternalLink />
                 </Button>
               </Link>
             )}
