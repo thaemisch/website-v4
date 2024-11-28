@@ -79,9 +79,6 @@ export function MobileNav() {
             >
               Experience
             </MobileLink>
-            <MobileLink key="/about" href="/about" onOpenChange={setOpen}>
-              About
-            </MobileLink>
           </div>
         </ScrollArea>
       </SheetContent>
