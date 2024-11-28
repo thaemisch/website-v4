@@ -4,16 +4,18 @@
       "index": "this-one",
       "title": "This one",
       "description": "Serves as a portfolio of yours truly.",
-      "repolink": "https://github.com/thaemisch/web",
-      "stackPrimary": ["React", "Next.js"],
+      "repoLink": "https://github.com/thaemisch/web",
+      "stackPrimary": [
+        "React",
+        "Next.js"
+      ],
       "stackSecondary": [
         "TailwindCSS",
         "shadcn/ui",
         "Aceternity UI",
         "Magic UI"
       ],
-      "infolink": "/projects/websites/this-one",
-      "deploymentlink": "https://thaemisch.net",
+      "deploymentLink": "https://thaemisch.net",
       "advanced": {
         "description": "This website is a portfolio of mine, showcasing my projects and skills. It is built with React and Next.js and uses TailwindCSS for styling. The website is fully responsive and has a dark mode. The UI is built with shadcn/ui, Aceternity UI and Magic UI. The source code is available on GitHub.",
         "contributors": [
@@ -27,11 +29,16 @@
       "index": "guess-the-song",
       "title": "Guess The Song",
       "description": "A multiplayer browser game where players take turns in picking songs which the other players have to guess.",
-      "repolink": "https://github.com/Guess-The-Song",
-      "stackPrimary": ["Vue", "Nuxt"],
-      "stackSecondary": ["TailwindCSS", "Nuxt UI"],
-      "infolink": "/projects/websites/guess-the-song",
-      "deploymentlink": "https://gts.thaemisch.com",
+      "repoLink": "https://github.com/Guess-The-Song",
+      "stackPrimary": [
+        "Vue",
+        "Nuxt"
+      ],
+      "stackSecondary": [
+        "TailwindCSS",
+        "Nuxt UI"
+      ],
+      "deploymentLink": "https://gts.thaemisch.com",
       "advanced": {
         "description": "Embark on a musical journey with our song-identification challenge. In each round, the active player chooses a song from Spotify, while other participants strive to identify both the song and its artists.The game offers a varied selection of tracks, testing participants music knowledge and recognition skills. Engage in this competitive yet straightforward experience, where accuracy and speed determine success. Step into the world of musical deduction and see if you have what it takes to triumph in this intriguing game of knowledge.",
         "contributors": [
@@ -51,11 +58,16 @@
       "index": "lpg-calc",
       "title": "LPG Calc",
       "description": "A simple calculator to evaluate and compare the cost of driving with LPG vs gasoline.",
-      "repolink": "https://github.com/thaemisch/lpg-calc",
-      "stackPrimary": ["Vue", "Nuxt"],
-      "stackSecondary": ["TailwindCSS", "Nuxt UI"],
-      "infolink": "/projects/websites/lpg-calc",
-      "deploymentlink": "https://lpg.thaemisch.com",
+      "repoLink": "https://github.com/thaemisch/lpg-calc",
+      "stackPrimary": [
+        "Vue",
+        "Nuxt"
+      ],
+      "stackSecondary": [
+        "TailwindCSS",
+        "Nuxt UI"
+      ],
+      "deploymentLink": "https://lpg.thaemisch.com",
       "advanced": {
         "description": "I drive a car that runs on both gasoline and LPG. Due to fluctuating prices, I created this calculator to compare the cost of driving with LPG vs gasoline. The calculator takes into account the price of the fuel, the consumption of the car and the efficiency of the fuel. The result is a simple comparison of the cost per 100 km. It also offers approximate yearly savings.",
         "contributors": [
@@ -71,10 +83,13 @@
       "index": "wordcloud-commitmsgs",
       "title": "Wordcloud Commitmessages",
       "description": "A GitHub Action workflow that generates a wordcloud from the commit messages of a repository.",
-      "repolink": "https://github.com/thaemisch/wordcloud-commitmsgs",
-      "stackPrimary": ["Python"],
-      "stackSecondary": ["GitHub Actions"],
-      "infolink": "/projects/misc/wordcloud-commitmsgs",
+      "repoLink": "https://github.com/thaemisch/wordcloud-commitmsgs",
+      "stackPrimary": [
+        "Python"
+      ],
+      "stackSecondary": [
+        "GitHub Actions"
+      ],
       "advanced": {
         "description": "This project is a GitHub Action workflow that generates a wordcloud from the commit messages of a repository. The wordcloud is generated with the Python library wordcloud. The workflow is triggered on push and generates a wordcloud.png file.",
         "contributors": [
@@ -101,10 +116,11 @@
       "index": "autohotkey",
       "title": "AutoHotKey",
       "description": "A collection of my most useful AutoHotKey scripts which i use for various purposes.",
-      "repolink": "https://github.com/thaemisch/autohotkey",
-      "stackPrimary": ["AHK"],
+      "repoLink": "https://github.com/thaemisch/autohotkey",
+      "stackPrimary": [
+        "AHK"
+      ],
       "stackSecondary": [],
-      "infolink": "/projects/misc/autohotkey",
       "advanced": {
         "description": "AutoHotKey is a powerful and easy-to-learn scripting language for Windows. It allows you to automate almost anything by sending keystrokes and mouse clicks. This repository contains a collection of my most useful scripts which I use for various purposes.",
         "contributors": [
@@ -119,10 +135,13 @@
       "index": "nvidia-broadcast-fix",
       "title": "Nvidia Broadcast Fix",
       "description": "A PowerShell script that fixes issues when using Nvidia Broadcast with Bluetooth devices.",
-      "repolink": "https://github.com/thaemisch/BluetoothBroadcastFix",
-      "stackPrimary": ["PowerShell"],
-      "stackSecondary": ["CMD"],
-      "infolink": "/projects/misc/nvidia-broadcast-fix",
+      "repoLink": "https://github.com/thaemisch/BluetoothBroadcastFix",
+      "stackPrimary": [
+        "PowerShell"
+      ],
+      "stackSecondary": [
+        "CMD"
+      ],
       "advanced": {
         "description": " When using Bluetooth Audio devices and having Nvidia Broadcast in auto start, Broadcast starts before your Bluetooth connection is established. This means, you have to manually switch the audio device within Broadcast, and then switch back to the original device. Every. Time.  The script runs in the background, periodically checking if the specified device is connected. Once it is detected, it restarts Broadcast. ",
         "contributors": [

@@ -35,7 +35,7 @@ export default function Project({ params }: { params: Params }) {
             {item.title}
             <Link
               className="align-middle"
-              href={item.repolink}
+              href={item.repoLink}
               target="_blank"
               rel="noreferrer"
             >
