@@ -29,29 +29,11 @@ import { Badge } from "@/components/ui/badge";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 
 function CarouselWebsites() {
-  const databaseWebsites = process.env.NEXT_PUBLIC_AW_DATABASE_ID_WEBSITES!;
-  const collectionWebsites = process.env.NEXT_PUBLIC_AW_COLLECTION_ID_WEBSITES!;
-
-  const [data, setData] = React.useState<{ documents: any[] }>({ documents: [] });
-
-  React.useEffect(() => {
-    init();
-  }, []);
-
-  const init = async () => {
-    if (sessionStorage.getItem("dataProjectsWebsites")) {
-      setData(JSON.parse(sessionStorage.getItem("dataProjectsWebsites")!));
-    } else {
-      const response = await databases.listDocuments(databaseWebsites, collectionWebsites);
-      setData(response);
-      sessionStorage.setItem("dataProjectsWebsites", JSON.stringify(response));
-    }
-  };
-
+  const data = projects.websites;
   return (
     <Carousel className="w-full">
       <CarouselContent className="-ml-1 w-full">
-        {data.documents.map((item, index) => (
+        {data.map((item, index) => (
           <CarouselItem key={index} className="pl-1 xl:basis-1/2 2xl:basis-1/3">
             <div className="p-1 h-full flex">
               <Card className="flex flex-col flex-grow">
@@ -74,16 +56,14 @@ function CarouselWebsites() {
                 <CardContent className="flex flex-col flex-grow justify-end my-0 py-0">
                   <div className="gap-2 w-full">
                     <ScrollArea className="w-96 whitespace-nowrap rounded-md">
-                      <div className="flex w-max space-x-4 py-6 px-2 select-none">
-                        {item.stackPrimary.map((stackP: string, index: string) => (
-                          <Badge key={index}>{stackP}</Badge>
-                        ))}
-                        {item.stackSecondary.map((stackS: string, index: string) => (
-                          <Badge variant="secondary" key={index}>
-                            {stackS}
+                      <div className="flex w-max space-x-4  py-6 px-2 select-none">
+                          {item.stackPrimary.map((stackP, index) => (
+                            <Badge key={index}>{stackP}</Badge>
+                          ))}
+                          <Badge variant="secondary">
+                            {"+" + item.stackSecondary.length}
                           </Badge>
-                        ))}
-                      </div>
+                        </div>
                       <ScrollBar orientation="horizontal" />
                     </ScrollArea>
                   </div>
@@ -155,7 +135,7 @@ function CarouselMisc() {
                         {item.description}
                       </CardDescription>
                     </div>
-                    <Link href={item.repolink} target="_blank" rel="noreferrer">
+                    <Link href={item.repoLink} target="_blank" rel="noreferrer">
                       <Button variant="ghost" className="h-10 w-10 px-0">
                         <FaGithub />
                         <span className="sr-only">GitHub</span>
@@ -170,11 +150,9 @@ function CarouselMisc() {
                         {item.stackPrimary.map((stackP, index) => (
                           <Badge key={index}>{stackP}</Badge>
                         ))}
-                        {item.stackSecondary.map((stackS, index) => (
-                          <Badge variant="secondary" key={index}>
-                            {stackS}
-                          </Badge>
-                        ))}
+                        <Badge variant="secondary">
+                          {"+" + item.stackSecondary.length}
+                        </Badge>
                       </div>
                       <ScrollBar orientation="horizontal" />
                     </ScrollArea>
@@ -182,18 +160,14 @@ function CarouselMisc() {
                 </CardContent>
                 <CardFooter>
                   <div className="w-full flex flex-row items-center justify-between">
-                    {item.infolink && (
-                      <Button variant="ghost" asChild>
-                        <Link
-                          href={item.infolink}
-                          target="_blank"
-                          rel="noreferrer"
-                        >
-                          More
-                          <ArrowRight />
-                        </Link>
-                      </Button>
-                    )}
+                    <Button variant="ghost" asChild>
+                      <Link
+                        href={"/projects/misc/" + item.index}
+                      >
+                        More
+                        <ArrowRight />
+                      </Link>
+                    </Button>
                   </div>
                 </CardFooter>
               </Card>

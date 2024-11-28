@@ -25,61 +25,13 @@ interface Params {
 }
 
 export default function Project({ params }: { params: Params }) {
-  React.useEffect(() => {
-    init();
-  }, []);
-
-  const databaseWebsites = process.env.NEXT_PUBLIC_AW_DATABASE_ID_WEBSITES!;
-  const collectionWebsites = process.env.NEXT_PUBLIC_AW_COLLECTION_ID_WEBSITES!;
-
-  const [item, setItem] = React.useState<any>(null);
-  const [contributors, setContributors] = React.useState<any>(null);
-
-  const init = async () => {
-    if (sessionStorage.getItem("dataProjectsWebsites")) {
-      JSON.parse(sessionStorage.getItem("dataProjectsWebsites")!);
-      const response = JSON.parse(sessionStorage.getItem("dataProjectsWebsites")!);
-      const foundItem = response.documents.find((doc: any) => doc.index === params.slug[0]);
-      setItem(foundItem);
-      if (foundItem) {
-        try {
-          const contributorsX = foundItem.advancedContributors.map((item: string) => {
-            const parsedItem = JSON.parse(item.replace(/'/g, '"'));
-            return {
-              github: parsedItem.github,
-              role: parsedItem.role
-            };
-          });
-          setContributors(contributorsX);
-        } catch (e) {
-          console.error("Failed to parse contributors JSON:", e);
-        }
-      }
-    } else {
-      const response = await databases.listDocuments(databaseWebsites, collectionWebsites);
-      sessionStorage.setItem("dataProjectsWebsites", JSON.stringify(response));
-      const foundItem = response.documents.find((doc: any) => doc.index === params.slug[0]);
-      setItem(foundItem);
-      if (foundItem) {
-        try {
-          const contributorsX = foundItem.advancedContributors.map((item: string) => {
-            const parsedItem = JSON.parse(item.replace(/'/g, '"'));
-            return {
-              github: parsedItem.github,
-              role: parsedItem.role
-            };
-          });
-          setContributors(contributorsX);
-        } catch (e) {
-          console.error("Failed to parse contributors JSON:", e);
-        }
-      }
-    }
-  };
-
-  if (!item) {
-    return <LoadingSlug />;
+  const project = projects.websites.findIndex(
+    (project) => project.index === params.slug[0]
+  );
+  if (project === -1) {
+    return <div>Not found</div>;
   }
+  const item = projects.websites[project];
 
   return (
     <div className="w-full h-full">
@@ -115,10 +67,10 @@ export default function Project({ params }: { params: Params }) {
           </p>
           <ScrollArea className="w-full whitespace-nowrap rounded-md">
             <div className="flex w-max space-x-4 py-6 select-none">
-              {item.stackPrimary.map((stackP: string, index: string) => (
+              {item.stackPrimary.map((stackP, index) => (
                 <Badge key={index}>{stackP}</Badge>
               ))}
-              {item.stackSecondary.map((stackS: string, index: string) => (
+              {item.stackSecondary.map((stackS, index) => (
                 <Badge variant="secondary" key={index}>
                   {stackS}
                 </Badge>
@@ -129,7 +81,7 @@ export default function Project({ params }: { params: Params }) {
         </div>
         <div className="w-full flex flex-col xl:flex-row md:px-10 gap-10">
           <div className="w-full flex flex-col gap-10">
-            {item.advancedDescription}
+            {item.advanced?.description}
           </div>
           <div className="w-full flex flex-col gap-10">
             <Card className="w-full">
@@ -137,7 +89,7 @@ export default function Project({ params }: { params: Params }) {
                 <CardTitle>Contributors</CardTitle>
               </CardHeader>
               <CardContent className="flex flex-col">
-                {contributors.map((contributor: { github: string; role?: string }, index: any) => (
+                {item.advanced?.contributors.map((contributor: { github: string; role?: string }, index: any) => (
                   <Link
                     key={index}
                     className="align-middle"
@@ -158,13 +110,13 @@ export default function Project({ params }: { params: Params }) {
                 ))}
               </CardContent>
             </Card>
-            {item.advancedNote && (
+            {item.advanced?.note && (
               <Card className="w-full">
                 <CardHeader>
                   <CardTitle>Note</CardTitle>
                 </CardHeader>
                 <CardContent className="flex flex-col">
-                  {item.advancedNote}
+                  {item.advanced?.note}
                 </CardContent>
               </Card>
             )}
