@@ -5,10 +5,7 @@
       "title": "This one",
       "description": "Serves as a portfolio of yours truly.",
       "repoLink": "https://github.com/thaemisch/web",
-      "stackPrimary": [
-        "React",
-        "Next.js"
-      ],
+      "stackPrimary": ["React", "Next.js"],
       "stackSecondary": [
         "TailwindCSS",
         "shadcn/ui",
@@ -30,14 +27,8 @@
       "title": "Guess The Song",
       "description": "A multiplayer browser game where players take turns in picking songs which the other players have to guess.",
       "repoLink": "https://github.com/Guess-The-Song",
-      "stackPrimary": [
-        "Vue",
-        "Nuxt"
-      ],
-      "stackSecondary": [
-        "TailwindCSS",
-        "Nuxt UI"
-      ],
+      "stackPrimary": ["Vue", "Nuxt"],
+      "stackSecondary": ["TailwindCSS", "Nuxt UI"],
       "deploymentLink": "https://gts.thaemisch.com",
       "advanced": {
         "description": "Embark on a musical journey with our song-identification challenge. In each round, the active player chooses a song from Spotify, while other participants strive to identify both the song and its artists.The game offers a varied selection of tracks, testing participants music knowledge and recognition skills. Engage in this competitive yet straightforward experience, where accuracy and speed determine success. Step into the world of musical deduction and see if you have what it takes to triumph in this intriguing game of knowledge.",
@@ -59,14 +50,8 @@
       "title": "LPG Calc",
       "description": "A simple calculator to evaluate and compare the cost of driving with LPG vs gasoline.",
       "repoLink": "https://github.com/thaemisch/lpg-calc",
-      "stackPrimary": [
-        "Vue",
-        "Nuxt"
-      ],
-      "stackSecondary": [
-        "TailwindCSS",
-        "Nuxt UI"
-      ],
+      "stackPrimary": ["Vue", "Nuxt"],
+      "stackSecondary": ["TailwindCSS", "Nuxt UI"],
       "deploymentLink": "https://lpg.thaemisch.com",
       "advanced": {
         "description": "I drive a car that runs on both gasoline and LPG. Due to fluctuating prices, I created this calculator to compare the cost of driving with LPG vs gasoline. The calculator takes into account the price of the fuel, the consumption of the car and the efficiency of the fuel. The result is a simple comparison of the cost per 100 km. It also offers approximate yearly savings.",
@@ -84,12 +69,8 @@
       "title": "Wordcloud Commitmessages",
       "description": "A GitHub Action workflow that generates a wordcloud from the commit messages of a repository.",
       "repoLink": "https://github.com/thaemisch/wordcloud-commitmsgs",
-      "stackPrimary": [
-        "Python"
-      ],
-      "stackSecondary": [
-        "GitHub Actions"
-      ],
+      "stackPrimary": ["Python"],
+      "stackSecondary": ["GitHub Actions"],
       "advanced": {
         "description": "This project is a GitHub Action workflow that generates a wordcloud from the commit messages of a repository. The wordcloud is generated with the Python library wordcloud. The workflow is triggered on push and generates a wordcloud.png file.",
         "contributors": [
@@ -113,16 +94,14 @@
       }
     },
     {
-      "index": "autohotkey",
-      "title": "AutoHotKey",
-      "description": "A collection of my most useful AutoHotKey scripts which i use for various purposes.",
-      "repoLink": "https://github.com/thaemisch/autohotkey",
-      "stackPrimary": [
-        "AHK"
-      ],
+      "index": "scripts-win",
+      "title": "Windows Scripts",
+      "description": "A collection of my most useful scripts for windows which I use for various purposes.",
+      "repoLink": "https://github.com/thaemisch/scripts-win",
+      "stackPrimary": ["Python", "Rust", "AHK"],
       "stackSecondary": [],
       "advanced": {
-        "description": "AutoHotKey is a powerful and easy-to-learn scripting language for Windows. It allows you to automate almost anything by sending keystrokes and mouse clicks. This repository contains a collection of my most useful scripts which I use for various purposes.",
+        "description": "This repository contains a collection of my most useful scripts for Windows. The scripts are written in Python, Rust and AHK. They are used for various purposes, such as automating tasks or improving the workflow. The repository is constantly updated with new scripts and improvements.",
         "contributors": [
           {
             "github": "thaemisch"
@@ -136,12 +115,8 @@
       "title": "Nvidia Broadcast Fix",
       "description": "A PowerShell script that fixes issues when using Nvidia Broadcast with Bluetooth devices.",
       "repoLink": "https://github.com/thaemisch/BluetoothBroadcastFix",
-      "stackPrimary": [
-        "PowerShell"
-      ],
-      "stackSecondary": [
-        "CMD"
-      ],
+      "stackPrimary": ["PowerShell"],
+      "stackSecondary": ["CMD"],
       "advanced": {
         "description": " When using Bluetooth Audio devices and having Nvidia Broadcast in auto start, Broadcast starts before your Bluetooth connection is established. This means, you have to manually switch the audio device within Broadcast, and then switch back to the original device. Every. Time.  The script runs in the background, periodically checking if the specified device is connected. Once it is detected, it restarts Broadcast. ",
         "contributors": [
