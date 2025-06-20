@@ -82,11 +82,6 @@ export default function Project({ params }: { params: Params }) {
                     <Button variant="ghost">
                       <FaGithub />
                       {contributor.github + " "}
-                      {"role" in contributor && (
-                        <Badge variant="outline" className="select-none">
-                          {contributor.role}
-                        </Badge>
-                      )}
                     </Button>
                   </Link>
                 ))}
@@ -99,39 +94,6 @@ export default function Project({ params }: { params: Params }) {
                 </CardHeader>
                 <CardContent className="flex flex-col">
                   {item.advanced?.note}
-                </CardContent>
-              </Card>
-            )}
-            {item.advanced?.usage && (
-              <Card className="w-full">
-                <CardHeader>
-                  <CardTitle>Usage</CardTitle>
-                </CardHeader>
-                <CardContent className="flex flex-col">
-                  {item.advanced?.usage}
-                </CardContent>
-              </Card>
-            )}
-            {item.advanced?.links && (
-              <Card className="w-full">
-                <CardHeader>
-                  <CardTitle>Links</CardTitle>
-                </CardHeader>
-                <CardContent className="flex flex-row">
-                  {item.advanced?.links.map((link, index) => (
-                    <Link
-                      key={index}
-                      className="align-middle"
-                      href={link.link}
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      <Button>
-                        {link.name}
-                        <LinkIcon />
-                      </Button>
-                    </Link>
-                  ))}
                 </CardContent>
               </Card>
             )}

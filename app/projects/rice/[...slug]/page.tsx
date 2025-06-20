@@ -102,39 +102,6 @@ export default function Project({ params }: { params: Params }) {
                 </CardContent>
               </Card>
             )}
-            {item.advanced?.usage && (
-              <Card className="w-full">
-                <CardHeader>
-                  <CardTitle>Usage</CardTitle>
-                </CardHeader>
-                <CardContent className="flex flex-col">
-                  {item.advanced?.usage}
-                </CardContent>
-              </Card>
-            )}
-            {item.advanced?.links && (
-              <Card className="w-full">
-                <CardHeader>
-                  <CardTitle>Links</CardTitle>
-                </CardHeader>
-                <CardContent className="flex flex-row">
-                  {item.advanced?.links.map((link, index) => (
-                    <Link
-                      key={index}
-                      className="align-middle"
-                      href={link.link}
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      <Button>
-                        {link.name}
-                        <LinkIcon />
-                      </Button>
-                    </Link>
-                  ))}
-                </CardContent>
-              </Card>
-            )}
           </div>
         </div>
       </div>
