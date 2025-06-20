@@ -4,7 +4,7 @@
       "index": "this-one",
       "title": "This one",
       "description": "Serves as a portfolio of yours truly.",
-      "repoLink": "https://github.com/thaemisch/web",
+      "repoLink": "https://github.com/thaemisch/website-v4",
       "stackPrimary": ["React", "Next.js"],
       "stackSecondary": [
         "TailwindCSS",
@@ -14,7 +14,7 @@
       ],
       "deploymentLink": "https://thaemisch.net",
       "advanced": {
-        "description": "This website is a portfolio of mine, showcasing my projects and skills. It is built with React and Next.js and uses TailwindCSS for styling. The website is fully responsive and has a dark mode. The UI is built with shadcn/ui, Aceternity UI and Magic UI. The source code is available on GitHub.",
+        "description": "This website is a portfolio of mine, showcasing my projects and skills. It is built with React and Next.js and uses TailwindCSS for styling. The website is fully responsive and has a dark mode. The UI is built with shadcn/ui, Aceternity UI and Magic UI.",
         "contributors": [
           {
             "github": "thaemisch"
@@ -63,6 +63,69 @@
       }
     }
   ],
+  "tools": [
+    {
+      "index": "gitzeug",
+      "title": "Gitzeug",
+      "description": "A CLI toolkit for streamlined Git operations.",
+      "repoLink": "https://github.com/thaemisch/gitzeug",
+      "stackPrimary": ["Rust"],
+      "stackSecondary": ["Git"],
+      "advanced": {
+        "description": "Git is a very powerfull tool. But sometimes, I don't need powerfull. I need simple, easy, fast. gitzeug is a command-line utility designed to simplify Git tasks.",
+        "contributors": [
+          {
+            "github": "thaemisch"
+          }
+        ],
+        "note": "This project is still in development. If you have any suggestions or issues, feel free to open an issue on GitHub."
+      }
+    }
+  ],
+  "rice": [
+    {
+      "index": "shell",
+      "title": "Shell",
+      "description": "Customized version of the caelestia shell by soramanew.",
+      "repoLink": "https://github.com/t7h-dots/shell",
+      "stackPrimary": ["QtQuick"],
+      "stackSecondary": ["Quickshell"],
+      "advanced": {
+        "description": "This is a customized version of the caelestia shell by soramanew. My fork adds and removes some features and quality of life improvements. I also try to keep it compatible with NixOS, and remove some dependencies and behaviour that clashes with NixOS.",
+        "contributors": [
+          {
+            "github": "thaemisch"
+          },
+          {
+            "github": "soramanew",
+            "role": "Original Creator"
+          }
+        ],
+        "note": "This project is still in development. If you have any suggestions or issues, feel free to open an issue on GitHub."
+      }
+    },
+    {
+      "index": "cli",
+      "title": "CLI",
+      "description": "Customized version of the caelestia cli by soramanew.",
+      "repoLink": "https://github.com/t7h-dots/cli",
+      "stackPrimary": ["Python"],
+      "stackSecondary": ["Nix"],
+      "advanced": {
+        "description": "This is a customized version of the caelestia cli by soramanew. My fork removes all features and dependencies that are not needed to controll the caelestia shell. It also comes packaged for NixOS, so you can easily install it with Nix.",
+        "contributors": [
+          {
+            "github": "thaemisch"
+          },
+          {
+            "github": "soramanew",
+            "role": "Original Creator"
+          }
+        ],
+        "note": "This project is still in development. If you have any suggestions or issues, feel free to open an issue on GitHub."
+      }
+    }
+  ],
   "misc": [
     {
       "index": "wordcloud-commitmsgs",
@@ -94,14 +157,14 @@
       }
     },
     {
-      "index": "scripts-win",
-      "title": "Windows Scripts",
-      "description": "A collection of my most useful scripts for windows which I use for various purposes.",
-      "repoLink": "https://github.com/thaemisch/scripts-win",
-      "stackPrimary": ["Python", "Rust", "AHK"],
+      "index": "scripts",
+      "title": "Scripts",
+      "description": "A collection of my most useful scripts for both Windows and Linux.",
+      "repoLink": "https://github.com/thaemisch/scripts",
+      "stackPrimary": ["Rust", "Python", "AHK"],
       "stackSecondary": [],
       "advanced": {
-        "description": "This repository contains a collection of my most useful scripts for Windows. The scripts are written in Python, Rust and AHK. They are used for various purposes, such as automating tasks or improving the workflow. The repository is constantly updated with new scripts and improvements.",
+        "description": "This repository contains a collection of my most useful scripts for Windows and Linux. The scripts are written in Rust, Python and AHK. They are used for various purposes, such as automating tasks or improving the workflow.",
         "contributors": [
           {
             "github": "thaemisch"

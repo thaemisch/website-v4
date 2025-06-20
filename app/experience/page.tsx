@@ -16,6 +16,10 @@ function ExperienceTimeline() {
             languages and technologies, which I then applied in my personal
             projects.
           </p>
+          <p className="text-xs md:text-sm font-normal mb-8">
+            During this time, I also ditched Windows and switched to Linux for good. I haven&apos;t
+            looked back since.
+          </p>
         </div>
       ),
     },
@@ -37,8 +41,7 @@ function ExperienceTimeline() {
           </p>
           <p className="text-xs md:text-sm font-normal mb-8">
             Now having some hands-on experience with Linux as a server, I
-            started dual-booting Linux on my personal laptop. I haven&apos;t
-            looked back since.
+            started dual-booting Linux on my personal laptop.
           </p>
         </div>
       ),

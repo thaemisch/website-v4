@@ -1,14 +1,10 @@
-"use client";
-
-import { databases } from "@/lib/appwrite/config";
-
 import Link from "next/link";
 import projects from "../../projects.json";
 import { Button } from "@/components/ui/button";
 import { FaGithub } from "react-icons/fa";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { Badge } from "@/components/ui/badge";
-import { ArrowRight, ExternalLink } from "lucide-react";
+import { ArrowRight, Download, LinkIcon } from "lucide-react";
 import {
   Card,
   CardContent,
@@ -17,20 +13,19 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import React from "react";
 
 interface Params {
   slug: string[];
 }
 
 export default function Project({ params }: { params: Params }) {
-  const project = projects.websites.findIndex(
+  const project = projects.rice.findIndex(
     (project) => project.index === params.slug[0]
   );
   if (project === -1) {
     return <div>Not found</div>;
   }
-  const item = projects.websites[project];
+  const item = projects.rice[project];
 
   return (
     <div className="w-full h-full">
@@ -48,18 +43,6 @@ export default function Project({ params }: { params: Params }) {
                 <FaGithub />
               </Button>
             </Link>
-            {item.deploymentLink && (
-              <Link
-                className="align-middle"
-                href={item.deploymentLink}
-                target="_blank"
-                rel="noreferrer"
-              >
-                <Button>
-                  <ExternalLink />
-                </Button>
-              </Link>
-            )}
           </h2>
           <p className="text-neutral-700 dark:text-neutral-300 text-sm md:text-base max-w-md">
             {item.description}
@@ -88,7 +71,7 @@ export default function Project({ params }: { params: Params }) {
                 <CardTitle>Contributors</CardTitle>
               </CardHeader>
               <CardContent className="flex flex-col">
-                {item.advanced?.contributors.map((contributor: { github: string; role?: string }, index: any) => (
+                {item.advanced?.contributors.map((contributor, index) => (
                   <Link
                     key={index}
                     className="align-middle"
@@ -99,7 +82,7 @@ export default function Project({ params }: { params: Params }) {
                     <Button variant="ghost">
                       <FaGithub />
                       {contributor.github + " "}
-                      {contributor.role && (
+                      {"role" in contributor && (
                         <Badge variant="outline" className="select-none">
                           {contributor.role}
                         </Badge>
@@ -116,6 +99,39 @@ export default function Project({ params }: { params: Params }) {
                 </CardHeader>
                 <CardContent className="flex flex-col">
                   {item.advanced?.note}
+                </CardContent>
+              </Card>
+            )}
+            {item.advanced?.usage && (
+              <Card className="w-full">
+                <CardHeader>
+                  <CardTitle>Usage</CardTitle>
+                </CardHeader>
+                <CardContent className="flex flex-col">
+                  {item.advanced?.usage}
+                </CardContent>
+              </Card>
+            )}
+            {item.advanced?.links && (
+              <Card className="w-full">
+                <CardHeader>
+                  <CardTitle>Links</CardTitle>
+                </CardHeader>
+                <CardContent className="flex flex-row">
+                  {item.advanced?.links.map((link, index) => (
+                    <Link
+                      key={index}
+                      className="align-middle"
+                      href={link.link}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <Button>
+                        {link.name}
+                        <LinkIcon />
+                      </Button>
+                    </Link>
+                  ))}
                 </CardContent>
               </Card>
             )}

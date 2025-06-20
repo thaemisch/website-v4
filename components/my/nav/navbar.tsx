@@ -16,7 +16,7 @@ export function Navbar() {
         <div className="flex flex-1 items-center justify-end space-x-2">
           <nav className="flex items-center">
             <Link
-              href={"https://github.com/thaemisch/web"}
+              href={"https://github.com/thaemisch"}
               target="_blank"
               rel="noreferrer"
             >
