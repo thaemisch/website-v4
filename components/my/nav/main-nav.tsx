@@ -9,15 +9,15 @@ export function MainNav() {
 
   return (
     <div className="mr-4 hidden md:flex">
-      <Link href="/" className="mr-4 flex items-center space-x-2 lg:mr-6">
+      <Link href="/" className="mr-4 flex items-center space-x-2">
         <img
           src="https://avatars.githubusercontent.com/u/71187051?v=4"
           alt="Logo"
           className="w-6 h-6 rounded-lg"
         />
-        <span className="hidden font-bold lg:inline-block">thaemisch</span>
+        <span className="hidden font-bold md:inline-block">thaemisch</span>
       </Link>
-      <nav className="flex items-center gap-4 font-medium text-sm lg:gap-6">
+      <nav className="flex items-center gap-4 font-medium text-sm gap-6">
         <Link
           href="/projects"
           className={cn(

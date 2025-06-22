@@ -92,3 +92,42 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+/* Custom Scrollbar Styles */
+/* Webkit Browsers */
+::-webkit-scrollbar {
+  width: 2px;
+  background: hsl(var(--background));
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--foreground));
+  border-radius: 6px;
+  border: 3px solid hsl(var(--background));
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted));
+}
+::-webkit-scrollbar-corner {
+  background: hsl(var(--background));
+}
+
+/* Dark mode override */
+.dark ::-webkit-scrollbar {
+  background: hsl(var(--background));
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: hsl(var(--foreground));
+  border: 3px solid hsl(var(--background));
+}
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted));
+}
+
+/* Firefox */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: hsl(var(--foreground)) hsl(var(--background));
+}
+.dark html {
+  scrollbar-color: hsl(var(--foreground)) hsl(var(--background));
+}
