@@ -23,6 +23,26 @@
       }
     },
     {
+      "index": "docs",
+      "title": "Docs",
+      "description": "Documentation for my projects and tools.",
+      "repoLink": "https://github.com/thaemisch/docs",
+      "stackPrimary": ["React", "Next.js"],
+      "stackSecondary": [
+        "Fumadocs",
+        "MDX"
+      ],
+      "deploymentLink": "https://docs.thaemisch.net",
+      "advanced": {
+        "description": "This website is a documentation site for my projects and tools. It is built using Fumadocs. The documentation is written in MDX, which allows me to use React components in the documentation.",
+        "contributors": [
+          {
+            "github": "thaemisch"
+          }
+        ]
+      }
+    },
+    {
       "index": "guess-the-song",
       "title": "Guess The Song",
       "description": "A multiplayer browser game where players take turns in picking songs which the other players have to guess.",
@@ -41,8 +61,7 @@
             "github": "ob-julian",
             "role": "Backend"
           }
-        ],
-        "note": "This project is stil a work in progress. You will not be able to sign in, since the Spotify Aplication is not public yet."
+        ]
       }
     },
     {
@@ -69,6 +88,7 @@
       "title": "Gitzeug",
       "description": "A CLI toolkit for streamlined Git operations.",
       "repoLink": "https://github.com/thaemisch/gitzeug",
+      "docsLink": "https://docs.thaemisch.net/gitzeug",
       "stackPrimary": ["Rust"],
       "stackSecondary": ["Git"],
       "advanced": {
@@ -77,8 +97,7 @@
           {
             "github": "thaemisch"
           }
-        ],
-        "note": "This project is still in development. If you have any suggestions or issues, feel free to open an issue on GitHub."
+        ]
       }
     }
   ],
@@ -88,6 +107,7 @@
       "title": "Shell",
       "description": "Customized version of the caelestia shell by soramanew.",
       "repoLink": "https://github.com/t7h-dots/shell",
+      "docsLink": "https://docs.thaemisch.net/shell",
       "stackPrimary": ["QtQuick"],
       "stackSecondary": ["Quickshell"],
       "advanced": {
@@ -100,8 +120,7 @@
             "github": "soramanew",
             "role": "Original Creator"
           }
-        ],
-        "note": "This project is still in development. If you have any suggestions or issues, feel free to open an issue on GitHub."
+        ]
       }
     },
     {
@@ -109,6 +128,7 @@
       "title": "CLI",
       "description": "Customized version of the caelestia cli by soramanew.",
       "repoLink": "https://github.com/t7h-dots/cli",
+      "docsLink": "https://docs.thaemisch.net/cli",
       "stackPrimary": ["Python"],
       "stackSecondary": ["Nix"],
       "advanced": {
@@ -121,8 +141,7 @@
             "github": "soramanew",
             "role": "Original Creator"
           }
-        ],
-        "note": "This project is still in development. If you have any suggestions or issues, feel free to open an issue on GitHub."
+        ]
       }
     }
   ],
@@ -132,6 +151,7 @@
       "title": "Wordcloud Commitmessages",
       "description": "A GitHub Action workflow that generates a wordcloud from the commit messages of a repository.",
       "repoLink": "https://github.com/thaemisch/wordcloud-commitmsgs",
+      "docsLink": "https://docs.thaemisch.net/wordcloud-commitmessages",
       "stackPrimary": ["Python"],
       "stackSecondary": ["GitHub Actions"],
       "advanced": {
@@ -145,14 +165,6 @@
             "github": "ob-julian",
             "role": "Initial Python Script"
           }
-        ],
-        "note": "In the beginning when there are few commits, the wordcloud will be very small and not very interesting. The more commits you have, the more interesting the wordcloud will be.",
-        "usage": "Just import the workflow (download below) and it will automatically download the required Python script and clean up after itself, leaving only the wordcloud.png and a Readme file to display the image in the wordcloud/ directory.",
-        "links": [
-          {
-            "name": "Download Workflow",
-            "link": "https://github.com/thaemisch/wordcloud-commitmsgs/releases/download/v1.0.0/generate_wordcloud.yml"
-          }
         ]
       }
     },
@@ -161,6 +173,7 @@
       "title": "Scripts",
       "description": "A collection of my most useful scripts for both Windows and Linux.",
       "repoLink": "https://github.com/thaemisch/scripts",
+      "docsLink": "https://docs.thaemisch.net/scripts",
       "stackPrimary": ["Rust", "Python", "AHK"],
       "stackSecondary": [],
       "advanced": {
@@ -169,8 +182,7 @@
           {
             "github": "thaemisch"
           }
-        ],
-        "note": "To see which script does what, check the Readme file in the repository."
+        ]
       }
     },
     {
@@ -178,6 +190,7 @@
       "title": "Nvidia Broadcast Fix",
       "description": "A PowerShell script that fixes issues when using Nvidia Broadcast with Bluetooth devices.",
       "repoLink": "https://github.com/thaemisch/BluetoothBroadcastFix",
+      "docsLink": "https://docs.thaemisch.net/nvidia-broadcast-fix",
       "stackPrimary": ["PowerShell"],
       "stackSecondary": ["CMD"],
       "advanced": {
@@ -185,13 +198,6 @@
         "contributors": [
           {
             "github": "thaemisch"
-          }
-        ],
-        "usage": "Set the device ID (on line 1 of bluetooth-broadcast.ps1)",
-        "links": [
-          {
-            "name": "Find Device ID",
-            "link": "https://github.com/thaemisch/BluetoothBroadcastFix/tree/main/getdeviceid"
           }
         ]
       }

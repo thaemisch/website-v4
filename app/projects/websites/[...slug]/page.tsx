@@ -109,16 +109,6 @@ export default function Project({ params }: { params: Params }) {
                 ))}
               </CardContent>
             </Card>
-            {item.advanced?.note && (
-              <Card className="w-full">
-                <CardHeader>
-                  <CardTitle>Note</CardTitle>
-                </CardHeader>
-                <CardContent className="flex flex-col">
-                  {item.advanced?.note}
-                </CardContent>
-              </Card>
-            )}
           </div>
         </div>
       </div>

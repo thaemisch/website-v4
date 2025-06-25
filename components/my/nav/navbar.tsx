@@ -22,7 +22,9 @@ export function Navbar() {
         <div className="flex flex-1 items-center justify-end space-x-2">
           <nav className="flex items-center">
             <Link
-              href="/docs"
+              href="https://docs.thaemisch.net"
+              target="_blank"
+              rel="noreferrer"
             >
               <Button variant="ghost" className="h-8 w-8 px-0">
                 <FaBook className="h-4 w-4" />

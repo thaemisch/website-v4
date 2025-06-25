@@ -168,6 +168,18 @@ function CarouselTools() {
                         <ArrowRight />
                       </Link>
                     </Button>
+                    {item.docsLink && (
+                      <Button asChild>
+                        <Link
+                          href={item.docsLink}
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          Docs
+                          <ExternalLink />
+                        </Link>
+                      </Button>
+                    )}
                   </div>
                 </CardFooter>
               </Card>
@@ -246,6 +258,18 @@ function CarouselRice() {
                         <ArrowRight />
                       </Link>
                     </Button>
+                    {item.docsLink && (
+                      <Button asChild>
+                        <Link
+                          href={item.docsLink}
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          Docs
+                          <ExternalLink />
+                        </Link>
+                      </Button>
+                    )}
                   </div>
                 </CardFooter>
               </Card>
@@ -324,6 +348,18 @@ function CarouselMisc() {
                         <ArrowRight />
                       </Link>
                     </Button>
+                    {item.docsLink && (
+                      <Button asChild>
+                        <Link
+                          href={item.docsLink}
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          Docs
+                          <ExternalLink />
+                        </Link>
+                      </Button>
+                    )}
                   </div>
                 </CardFooter>
               </Card>

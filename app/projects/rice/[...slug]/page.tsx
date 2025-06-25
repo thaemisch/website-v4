@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { FaGithub } from "react-icons/fa";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { Badge } from "@/components/ui/badge";
-import { ArrowRight, Download, LinkIcon } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 import {
   Card,
   CardContent,
@@ -92,16 +92,24 @@ export default function Project({ params }: { params: Params }) {
                 ))}
               </CardContent>
             </Card>
-            {item.advanced?.note && (
-              <Card className="w-full">
-                <CardHeader>
-                  <CardTitle>Note</CardTitle>
-                </CardHeader>
-                <CardContent className="flex flex-col">
-                  {item.advanced?.note}
-                </CardContent>
-              </Card>
-            )}
+            <Card className="w-full">
+              <CardHeader>
+                <CardTitle>Documentation</CardTitle>
+              </CardHeader>
+              <CardContent className="flex flex-col">
+                <Link
+                  className="align-middle"
+                  href={item.docsLink}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <Button>
+                    Docs
+                    <ExternalLink />
+                  </Button>
+                </Link>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </div>
